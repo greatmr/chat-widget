@@ -1,0 +1,22 @@
+{
+  "name": "chat-widget",
+  "version": "1.0.0",
+  "description": "chat widget",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && npm run build:cp-public",
+    "build:cp-public": "cp ./public/** ./dist",
+    "type": "tsc --noEmit",
+    "test": "test"
+  },
+  "keywords": [
+    "chat",
+    "widget"
+  ],
+  "author": "jahan",
+  "license": "ISC",
+  "devDependencies": {
+    "tsc": "^2.0.4",
+    "typescript": "^5.3.3"
+  }
+}
