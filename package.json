@@ -2,21 +2,48 @@
   "name": "chat-widget",
   "version": "1.0.0",
   "description": "chat widget",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "scripts": {
-    "build": "tsc && npm run build:cp-public",
+    "start": "npx gulp start",
+    "build:bundle": "npx gulp build",
+    "build": "tsc",
     "build:cp-public": "cp ./public/** ./dist",
     "type": "tsc --noEmit",
-    "test": "test"
+    "test": "test",
+    "style": "sass ./styles/chat.scss dist/css/style.css"
   },
   "keywords": [
     "chat",
     "widget"
   ],
+  "engines": {
+    "node": ">=16"
+  },
   "author": "jahan",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.11.16",
+    "browser-sync": "^3.0.2",
+    "browserify": "^17.0.0",
+    "del": "^7.1.0",
+    "gulp": "^4.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "install": "^0.13.0",
+    "npm": "^10.4.0",
+    "sass": "^1.70.0",
+    "through2": "^4.0.2",
+    "ts-node": "^10.9.2",
     "tsc": "^2.0.4",
-    "typescript": "^5.3.3"
+    "tsify": "^5.0.4",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "gulp-connect": "^5.7.0"
   }
 }
