@@ -1,12 +1,35 @@
+// {
+//   "compilerOptions": {
+//     "module": "ES6",
+//     "allowJs": true,
+//     "sourceMap": true,
+//     "target": "ES6",
+//     "noImplicitAny": true,
+//     "noImplicitReturns": false,
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "lib": ["es2017", "dom"],
+//     "forceConsistentCasingInFileNames": true,
+//     "outDir": "./dist",
+//     "rootDir": "./"
+//   },
+//   "exclude": ["./node_modules"],
+//   "ts-node": {
+//     "esm": true
+//   }
+// }
+
 {
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
-    "outDir": "dist",
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./dist/js",
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitAny": false,
     "sourceMap": true,
-    "target": "ES6",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "strict": true
-  }
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
