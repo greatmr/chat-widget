@@ -5,7 +5,7 @@ const browserify = require("browserify")
 const source = require("vinyl-source-stream")
 const buffer = require("vinyl-buffer")
 const connect = require("gulp-connect")
-const tsify = require("tsify") // Import tsify for TypeScript transpilation
+const tsify = require("tsify")
 const fs = require("fs")
 const through2 = require("through2")
 
@@ -35,9 +35,7 @@ function cleanupRemovedScss() {
     const className = file.stem.replace(/[^a-zA-Z0-9]/g, "_")
     const tsFilePath = `src/styles/${className}.ts`
 
-    // Check if the corresponding TypeScript class file exists
     if (fs.existsSync(tsFilePath)) {
-      // Delete the TypeScript class file if it exists
       fs.unlinkSync(tsFilePath)
     }
 
@@ -61,10 +59,10 @@ const moveHtml = () =>
 
 const bundleJs = () =>
   browserify({
-    entries: ["src/index.ts"], // Entry point for your TypeScript code
-    debug: true, // Enable source maps for debugging
+    entries: ["src/index.ts"],
+    debug: true,
   })
-    .plugin(tsify, { target: "es6" }) // Use tsify to transpile TypeScript
+    .plugin(tsify, { target: "es6" })
     .bundle()
     .pipe(source("bundle.js"))
     .pipe(buffer())
@@ -72,14 +70,10 @@ const bundleJs = () =>
     .pipe(connect.reload())
 
 const watchFiles = () => {
-  // gulp.watch("src/**/*.ts", bundleJs)
-  // gulp.watch("src/styles/**/*.scss", compileScss)
-  // gulp.watch("src/**/*.html", moveHtml)
   gulp.watch("src/**/*.ts", bundleJs)
   gulp.watch(
     "src/styles/**/*.scss",
     gulp.series(bundleJs)
-    // gulp.series(generateScssClasses, bundleJs)
   )
   gulp.watch("src/**/*.html", moveHtml)
 }
@@ -93,11 +87,9 @@ const startServer = () =>
 
 gulp.task("build", gulp.series(bundleJs, compileScss, moveHtml))
 
-// Task to start the development server with live-reloading
 gulp.task(
   "start",
   gulp.parallel(startServer, bundleJs, compileScss, moveHtml, watchFiles)
 )
 
-// Default task (equivalent to "gulp start")
 gulp.task("default", gulp.task("start"))
