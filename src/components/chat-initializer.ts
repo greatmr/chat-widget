@@ -4,9 +4,9 @@ class ChatInitializer {
   }
 
   public appendHTML() {
-    const container = document.createElement("div")
-    const chatContainer = document.createElement("div")
-    chatContainer.className = "chat"
+    const container = document.createElement('div')
+    const chatContainer = document.createElement('div')
+    chatContainer.className = 'chat'
     chatContainer.innerHTML = `
         <div class="chat-title">
           <h1>Fabio Ottaviani</h1>
@@ -26,8 +26,8 @@ class ChatInitializer {
         </div>
       `
 
-    const backgroundDiv = document.createElement("div")
-    backgroundDiv.className = "bg"
+    const backgroundDiv = document.createElement('div')
+    backgroundDiv.className = 'bg'
 
     container.appendChild(chatContainer)
     container.appendChild(backgroundDiv)

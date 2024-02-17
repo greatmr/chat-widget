@@ -1,4 +1,4 @@
-import { getUniqueIdWithPrefix } from "./types-helper"
+import { getUniqueIdWithPrefix } from './types-helper'
 
 export class DOMEventHandlerUtil {
   public static store = new Map()
@@ -9,7 +9,7 @@ export class DOMEventHandlerUtil {
     eventName: string,
     callBack: any
   ): string {
-    const eventId = getUniqueIdWithPrefix("DOMEvent")
+    const eventId = getUniqueIdWithPrefix('DOMEvent')
     DOMEventHandlerUtil.store.set(eventId, (e: Event) => {
       const targets = element.querySelectorAll(selector)
       let target: HTMLElement | null = e.target as HTMLElement
@@ -31,11 +31,7 @@ export class DOMEventHandlerUtil {
     return eventId
   }
 
-  public static off(
-    element: HTMLElement,
-    eventName: string,
-    eventId: string
-  ): void {
+  public static off(element: HTMLElement, eventName: string, eventId: string): void {
     const funcFromStore = DOMEventHandlerUtil.store.get(eventId)
     if (!funcFromStore) {
       return
@@ -45,11 +41,7 @@ export class DOMEventHandlerUtil {
     DOMEventHandlerUtil.store.delete(eventId)
   }
 
-  public static one(
-    element: HTMLElement,
-    eventName: string,
-    callBack: Function
-  ): void {
+  public static one(element: HTMLElement, eventName: string, callBack: Function): void {
     element.addEventListener(eventName, function calee(e) {
       // remove event
       if (e.target && e.target.removeEventListener) {
