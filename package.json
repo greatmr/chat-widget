@@ -10,7 +10,8 @@
     "build:cp-public": "cp ./public/** ./dist",
     "type": "tsc --noEmit",
     "test": "test",
-    "style": "sass ./styles/chat.scss dist/css/style.css"
+    "style": "sass ./styles/chat.scss dist/css/style.css",
+    "format": "prettier --write src"
   },
   "keywords": [
     "chat",
@@ -22,6 +23,7 @@
   "author": "jahan",
   "license": "ISC",
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^20.11.16",
     "browser-sync": "^3.0.2",
     "browserify": "^17.0.0",
@@ -33,6 +35,7 @@
     "gulp-typescript": "^6.0.0-alpha.1",
     "install": "^0.13.0",
     "npm": "^10.4.0",
+    "prettier": "^3.2.5",
     "sass": "^1.70.0",
     "through2": "^4.0.2",
     "ts-node": "^10.9.2",

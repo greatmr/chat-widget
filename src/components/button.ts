@@ -1,4 +1,4 @@
-import ChatStyleVariables from "../styles/chat"
+import ChatStyleVariables from '../styles/chat'
 
 class ChatButton {
   private shadowRoot: ShadowRoot
@@ -9,56 +9,49 @@ class ChatButton {
     this.shadowRoot = shadowRoot
   }
 
-  public initChatButton(): ChatButton {
+  public initChatButton() {
     this.generateButtonStyle()
     this.createButtonElement()
     this.attachClickEventListener()
-    return this
   }
 
-  public render(): ChatButton {
+  public render() {
     this.shadowRoot.appendChild(this.buttonElement)
-    return this
   }
 
-  public onClick(callback: (event: Event) => void): ChatButton {
+  public onClick(callback: (event: Event) => void) {
     this.clickCallback = callback
-    return this
   }
 
-  public triggerClickEvent(): ChatButton {
-    const clickEvent = new Event("customClick", {
+  public triggerClickEvent() {
+    const clickEvent = new Event('customClick', {
       bubbles: true,
-      composed: true,
+      composed: true
     })
     this.buttonElement.dispatchEvent(clickEvent)
     if (this.clickCallback) {
       this.clickCallback(clickEvent)
     }
-    return this
   }
 
-  private generateButtonStyle(): ChatButton {
-    const styleElement = document.createElement("style")
+  private generateButtonStyle() {
+    const styleElement = document.createElement('style')
     styleElement.textContent = ChatStyleVariables.chat_button
     this.shadowRoot.appendChild(styleElement)
-    return this
   }
 
-  private createButtonElement(): ChatButton {
-    this.buttonElement = document.createElement("button")
-    this.buttonElement.className = "chat-button"
+  private createButtonElement() {
+    this.buttonElement = document.createElement('button')
+    this.buttonElement.className = 'chat-button'
     this.buttonElement.innerHTML = `
       <span>Click</span>
     `
-    return this
   }
 
-  private attachClickEventListener(): ChatButton {
-    this.buttonElement.addEventListener("click", () => {
+  private attachClickEventListener() {
+    this.buttonElement.addEventListener('click', () => {
       this.triggerClickEvent()
     })
-    return this
   }
 }
 

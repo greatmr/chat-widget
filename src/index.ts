@@ -1,4 +1,4 @@
-import ChatWidget from "./components/chat-widget"
+import ChatWidget from './components/chat-widget'
 
 export {}
 
@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-customElements.define("chat-widget", ChatWidget)
+customElements.define('chat-widget', ChatWidget)
 
 const ChatWidgetElement: ChatWidget = new ChatWidget()
 document.body.appendChild(ChatWidgetElement)
